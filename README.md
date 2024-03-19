@@ -6,7 +6,6 @@ in children, and adults, in English and crosslinguistically (Hebrew, Japanese, H
 I have used free associations, repeated associations, fMRI, CHILDES and MCDI corpora,lexico-semantic networks of nouns
 in children with DLD and children with TLD, early features networks development, associative networks.
 - 🌱 I’m currently learning Mathematica. I'm planing to learn Python and RNN during my sabbatical.
-- 💞️ I’m  always looking to collaborate on different languages
 - 📫 How to reach me : maouenej@gvsu.edu
 
 <!---
