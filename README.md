@@ -7,8 +7,9 @@ I have used free associations, repeated associations, fMRI, CHILDES and MCDI cor
 in children with DLD and children with TLD, early features networks development, associative networks.
 - 🌱 I’m currently learning Mathematica. I'm planing to learn Python and RNN during my sabbatical.
 - 📫 How to reach me : maouenej@gvsu.edu
-
+- Link to CHILDES NA bank: https://childes.talkbank.org/access/Eng-NA/
 <!---
 maouenej/maouenej is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
+
