@@ -107,7 +107,7 @@
 %mor:	cop|be&3S comp|that det:art|a n|hat ?
 %gra:	1|0|ROOT 2|1|PRED 3|4|DET 4|2|OM 5|1|PUNCT
 %umor:	aux|be-Fin-Ind-Pres-S3 pron|that-Dem-S1 det|a-Ind-Art noun|hat ?
-%ugra:	1|4|COP 2|4|NSUBJ 3|4|DET 4|4|ROOT 5|4|PUNCT
+%ugra:	1|4|COP 2|4|NSUBJ 3|4|DET 4|4|ROOT 5|4|PUNC
 *CHI:	yeah !
 %mor:	co|yeah !
 %gra:	1|0|INCROOT 2|1|PUNCT
