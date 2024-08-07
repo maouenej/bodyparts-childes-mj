@@ -7,34 +7,51 @@ class ExtractData:
     def getline(self, transcript):
         # for each line in the transcript
         for i in transcript:
-            # searching for just %mor and %umor lines
+            # searching for MOT and CHI lines
             if i.startswith('*MOT') or i.startswith('*CHI'):
-                # setting the line to a variable
-                # print(i)
-                line = i
                 # sending lines to the PrepareData class
                 prepareclass = PrepareData()
-                # sends each line into the numberlines function of PrepareData
-                prepareclass.getalllines(line)
-                # sends each line into the makearray function of PrepareData
-                prepareclass.makearray(line)
+                #extract = ExtractData()
+
+                # prints each line
+                line = print(i)
+                # sends each line into the makelineslist function of PrepareData
+                prepareclass.makelineslist(line)
+
+
+
+    def numline(self, transcript):
+        # make a variable to number each line
+        counter = 1
+        for i in transcript:
+            line = print(f"{counter}: {i}")
+            #sending lines to the PrepareData class
+            prepareclass = PrepareData()
+            # sends each line into the makelineslist function of PrepareData
+            prepareclass.makelineslist(line)
+            # add one to counter to prepare variable for next line
+            counter += 1
+
+                #corespondingclass = CorespondingLines()
+                #corespondingclass.FindMMlines(line)
 
     def getmorphlines(self, transcript):
+        counter = 1
         for i in transcript:
             if i.startswith('%mor'):
-
-                # im thinking here you might need to use nltk, either to tokenize or seperate the
-                # lines based on each word
-
                 # setting the line to a variable
-                morphline = i
+                print(f"{counter}: {i}")
+                counter += 1
+
                 # sending lines to ExtractData class (so we can access our init)
-                morpharray = ExtractData()
+                # morpharray = ExtractData()
+
                 # add into array for later access
-                morpharray.morphlines += morphline
+                # morpharray.morphlines += morphline
+                # morarray = morpharray.morphlines
 
                 # currently does not work
-                print("This is the array of %mor lines: ", morpharray.morphlines)
+                # print("This is the array of %mor lines: ", morarray)
 
 
 class PrepareData:
@@ -43,31 +60,41 @@ class PrepareData:
         all_lines = []
         self.all_lines = all_lines
 
-    def getalllines(self, line):
+    def makelineslist(self, line):
         # putting each line into the all_lines array
-        self.all_lines += line
+        self.all_lines.append(line)
         # sending lines to PrepareData class (so we can send it to another function)
         dataclass = PrepareData()
-        # send array of all lines to numberlines function
-        dataclass.numberlines(self.all_lines)
 
-    # these two functions may be swapped
+        # prints each numbered line
+        #array = self.all_lines
+        for line in self.all_lines:
+            print(line)
 
-    # numberlines function still needs some work
-    def numberlines(self, lines):
-        # number lines of MOT and CHI in file
-        line_count = 1
-        # accessing each line in the array of all lines with MOT and CHI
-        for line in lines:
-            # place line_count variable at the front of the line
-            # append/save line instead of printing
-            print(f"{line_count}: {line}")
-            # increment line_count by 1 for next line
-            line_count += 1
 
-    # need to make an array of each line and save it for later
-    def makearray(self, line):
-        # here separate words into an array via whitespace
+
+    # function to link MOT and corresponding mor lines
+
+    # doesnt work correctly !!!!!!!!!!!!!!!!!!!
+    def linkmotmor(self, line):
+        # list for corresponding lines
+        mmlines = []
+
+        # setting parameter to a variable to use python functions
+        i = line
+        # if the line is a MOT line
+
+        '''
+        I tried adding in the if i is not None because without it or after the 
+        i.startswith call, you get a NoneType Attribute error message.
+        
+        It now prints but prints all lines including CHI, which is what we do NOT want.
+        '''
+        if i.startswith('*MOT'):
+        # find the corresponding mor line
+            mmlines.append(i)
+        if i.startswith(''):
+            mmlines.append(i)
         pass
 
 class CategorizeLists:
@@ -79,12 +106,33 @@ class CategorizeLists:
         grand_verbls = []
         self.grand_verbsls = grand_verbls
 
+        # grand list for body parts
+        grand_bdparts = []
+        self.grand_bdparts = grand_bdparts
+
         # will add other categories here later
+    def findbodypart(self, bd_part, sentence):
+        # put body parts file in place of amy.copy
+        bodyparts = open('./amy.cha copy', 'r')
+
+        i = bd_part
+        for i in bodyparts:
+            if i in sentence:
+                self.grand_bdparts.append(i)
+        pass
+
+
+    def findnouns(self):
+        pass
+
+    def findverbs(self):
+        pass
 
 
 if __name__ == "__main__":
     file = open('./amy.cha copy', 'r')
     lineclass = ExtractData()
     # lineclass.getline(file)
-    lineclass.getmorphlines(file)
+    lineclass.numline(file)
+    # lineclass.getmorphlines(file)
 
